@@ -1,45 +1,80 @@
-# Getting Started with Create React App
+# Medalists 🥇
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Uma aplicação contruida com ReactJS, onde visualizamos os ranking dos país medalistas na olímpiadas (dados fictícios).
 
-## Available Scripts
+## 🌐 Acesso
 
-In the project directory, you can run:
+https://medalists.vercel.app
 
-### `yarn start`
+![image](https://user-images.githubusercontent.com/39037180/132104329-82ef8086-7a0a-4dcf-9dfb-41ec674ebb6e.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![image](https://user-images.githubusercontent.com/39037180/132104341-409f399b-91f6-4e20-b83c-bb58ba0a1281.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📝 Detalhes
 
-### `yarn test`
+O ranking está ordenado por número de medalhas de ouro como prioridade e seguindo na prata e bronze como critério de desempate.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ▶️ Operações básicas
 
-### `yarn build`
+1. Visulizar ranking dos países;
+2. Buscar pela sigla de uma país;
+3. Ver os medalistas de cada país ao clicar nele.
+ 
+### 📱 Detalhes da tela
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- No cabeçalho da primeira tela, temos um campo de busca;
+- Abaixo do cabeçalho, uma lista com os países:
+  - cada linha da lista tem a ordem, a sigla, quantidade de medalhas (ouro, prata e bronze e total);
+- Na tela dos medalistas, temos:
+  - Cabeçalho com a sigla do país e a quantidade de medalhas de cada tipo;
+  - Grade com cada uma das medalhas conquistadas por esse país, contendo o simbolo do sexo do atleta, nome da atleta, tipo de medalha e modalidade;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🔨 Desenvolvimento
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Aplicação frontend desenvolvida com o framework [ReactJS](https://pt-br.reactjs.org) com [Typescript](https://www.typescriptlang.org).
 
-### `yarn eject`
+Usando também as bibliotecas 
+- [React Icons](https://react-icons.github.io/react-icons/search) para uso de icones.
+- [Context API](https://pt-br.reactjs.org/docs/context.html) para gerenciar os estados globais.
+- [React Router DOM](https://reactrouter.com/web/guides/quick-start) para gerenciamento das rotas.
+- [Styled Components](https://styled-components.com) para criação de componentes estilizados.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 📁 Pastas
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A organização da pasta "src" se deu usando um padrão de pastas que uso, onde
+  - 📂 "src/components" ficam os componentes isolados utilizados na(s) página(s) da aplicação.
+  - 📂 "src/pages" ficam as páginas principais da aplicação.
+  - 📂 "src/styles" ficam folhas de estilização (css) padrões da aplicação como estilos e cores padrões.
+  - 📂 "src/contexts" ficam os arquivos de contexto global.
+  - 📂 "src/types" fica o arquivo com as interfaces do projeto para Typescript.
+  - 📂 "src/routes" fica o(s) arquivo(s) relacionados às rotas da aplicação.
+  - 📂 "src/app" fica o componente raiz que chama as outras página e algumas configurações globais.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Cada página ou componente tem uma pasta com o seu nome, contendo 
+  - 📎 um arquivo tsx, para renderização do componente;
+  - 📎 um aquivo ts, para estilização daquele componente.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 🔷 Detalhes dos componentes
 
-## Learn More
+Componentes e página foram desenvolvidos usando o conceito de *functional components*, ou seja, os componentes renderizados são funções javascript.
+
+## ⬇️ Instalação
+
+Com o código clonado no computador, use o seguinte comando para instalar os pacotes 👇
+
+```
+npm install
+```
+
+Após o termino da instalação, use o seguinte comando para iniciar a aplicação localmente 👇
+
+```
+npm start
+```
+
+A aplicação rodará se possível em 🌐 http://localhost:3000.
+
+## 🚀 Aprenda mais sobre React
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
