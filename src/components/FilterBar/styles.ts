@@ -5,6 +5,7 @@ export const FilterBarContainer = styled.div`
   align-items: center;
 
   width: 100%;
+  min-height: 70px;
   height: 70px;
 `;
 

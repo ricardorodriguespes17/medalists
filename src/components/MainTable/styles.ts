@@ -8,6 +8,7 @@ export const MainTableContainer = styled.div`
 
   width: 450px;
   max-width: 100%;
+  max-height: calc(100% - 70px);
 `;
 
 export const MainTableHeader = styled.div`
@@ -16,16 +17,25 @@ export const MainTableHeader = styled.div`
 
   width: 100%;
   height: 50px;
+  min-height: 50px;
 
   border-bottom: 2px solid var(--secondary-color);
 `;
 
-export const MainTableItem = styled.div`
+export const MainTableCountryList = styled.div`
+  height: 100%;
+  width: 100%;
+
+  overflow: auto;
+`;
+
+export const MainTableCountryItem = styled.div`
   display: flex;
   align-items: center;
 
   width: 100%;
   height: 50px;
+  min-height: 50px;
 
   &:nth-child(odd) {
     border-top: 1px solid var(--gray1);

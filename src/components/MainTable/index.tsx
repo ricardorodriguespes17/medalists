@@ -1,44 +1,44 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { CountryContext } from "../../contexts/CountryContext";
 import {
   TableItemNumbers,
   MainTableContainer,
-  MainTableItem,
+  MainTableCountryItem,
   TableItemName,
   MainTableHeader,
   TableItemHeaderName,
+  MainTableCountryList,
 } from "./styles";
 
 function MainTable() {
-  const [ranking] = useState([
-    { name: "EUA", gold: 10, silver: 5, bronze: 10 },
-    { name: "BRA", gold: 9, silver: 10, bronze: 9 },
-    { name: "ESP", gold: 9, silver: 8, bronze: 15 },
-    { name: "GBR", gold: 7, silver: 9, bronze: 13 },
-    { name: "FRA", gold: 5, silver: 3, bronze: 12 },
-  ]);
+  const { countries } = useContext(CountryContext);
 
   return (
     <MainTableContainer>
       <MainTableHeader>
         <TableItemNumbers>#</TableItemNumbers>
-        <TableItemHeaderName>País</TableItemHeaderName>
+        <TableItemHeaderName>Country</TableItemHeaderName>
         <TableItemNumbers>🥇</TableItemNumbers>
         <TableItemNumbers>🥈</TableItemNumbers>
         <TableItemNumbers>🥉</TableItemNumbers>
         <TableItemNumbers>Total</TableItemNumbers>
       </MainTableHeader>
-      {ranking.map((item, index) => (
-        <MainTableItem>
-          <TableItemNumbers>{index + 1}</TableItemNumbers>
-          <TableItemName>{item.name}</TableItemName>
-          <TableItemNumbers>{item.gold}</TableItemNumbers>
-          <TableItemNumbers>{item.silver}</TableItemNumbers>
-          <TableItemNumbers>{item.bronze}</TableItemNumbers>
-          <TableItemNumbers>
-            {item.gold + item.silver + item.bronze}
-          </TableItemNumbers>
-        </MainTableItem>
-      ))}
+      <MainTableCountryList>
+        {countries.map((item, index) => (
+          <MainTableCountryItem key={index}>
+            <TableItemNumbers>{index + 1}</TableItemNumbers>
+            <TableItemName href={`/country/${item.symbol}`}>
+              {item.symbol}
+            </TableItemName>
+            <TableItemNumbers>{item.gold}</TableItemNumbers>
+            <TableItemNumbers>{item.silver}</TableItemNumbers>
+            <TableItemNumbers>{item.bronze}</TableItemNumbers>
+            <TableItemNumbers>
+              {item.gold + item.silver + item.bronze}
+            </TableItemNumbers>
+          </MainTableCountryItem>
+        ))}
+      </MainTableCountryList>
     </MainTableContainer>
   );
 }

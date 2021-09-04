@@ -1,5 +1,4 @@
 import {
-  ButtonClearFilters,
   FilterBarContainer,
   FilterBarItem,
   IconSearch,
@@ -7,23 +6,25 @@ import {
   InputSearchBox,
 } from "./styles";
 import { BiSearchAlt } from "react-icons/bi";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CountryContext } from "../../contexts/CountryContext";
 
 function FilterBar() {
+  const { loadCountries } = useContext(CountryContext);
+
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    searchFilterCountries(searchValue);
+    loadCountries(searchValue);
+    // eslint-disable-next-line
   }, [searchValue]);
-
-  function searchFilterCountries(word: string) {}
 
   return (
     <FilterBarContainer>
       <FilterBarItem>
         <InputSearchBox>
           <InputSearch
-            placeholder="Busca país"
+            placeholder="Search country"
             value={searchValue}
             onChange={(event) =>
               setSearchValue(event.target.value.toUpperCase())
@@ -34,9 +35,6 @@ function FilterBar() {
             <BiSearchAlt />
           </IconSearch>
         </InputSearchBox>
-      </FilterBarItem>
-      <FilterBarItem>
-        <ButtonClearFilters>Limpar</ButtonClearFilters>
       </FilterBarItem>
     </FilterBarContainer>
   );
